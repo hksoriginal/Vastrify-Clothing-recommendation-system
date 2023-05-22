@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vastrify | Clothing Recommendation Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
+    <style>
+     body {
+        background: linear-gradient(45deg, #f0f0f0, #e0e0e0, #ffffff);
+        background-size: 400% 400%;
+        animation: gradientAnimation 5s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #03adfc">
+    <a class="navbar-brand mx-2" href="#">
+        <h2>Vastrify</h2>
+    </a>
+
+</nav>
+<div class="container my-4">
+    <div class="row px-3">
+        <form method="post" enctype="multipart/form-data" action="recommend_cloths">
+            <!-- CSRF token for form submission -->
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"><h1>Cloth Description</h1></label>
+                <input name="input_text" type="text" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"><h2>Top Results</h2></label>
+                <input name="top_results" type="number" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Search</button>
+        </form>
+        <br>
+        <br>
+        <br>
+
+        {% if recommendations %}{% for i in recommendations%}
+        <!-- Display recommendations if available -->
+        <div class="card mx-2 my-2 card-img-top"
+             style="width: 18rem; background: rgba(255, 255, 255, 0.8); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px">
+            <img src="{{i.img}}" alt="..." style="width: 240px; height: 370px;">
+            <div class="card-body">
+                <h5 class="card-title">{{i.description}}</h5>
+                <div class=" card-footer">
+                    <a href="{{i.url}}" class="btn btn-success">Visit Page</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %} {% endif %}
+    </div>
+</div>
+</body>
+
+</html>
