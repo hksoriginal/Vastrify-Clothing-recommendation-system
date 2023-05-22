@@ -1,5 +1,8 @@
 # Vastrify Clothing Recommendation System
-[![Vastrify: Clothing Recommendation System - Project Demo](https://www.youtube.com/watch?v=xD0EJ69NpiA)
+
+[![Vastrify: Clothing Recommendation System - Project Demo](https://img.youtube.com/vi/xD0EJ69NpiA/0.jpg)](https://www.youtube.com/watch?v=xD0EJ69NpiA)
+
+
 ![image](https://github.com/hksoriginal/Vastrify-Clothing-recommendation-system/assets/44989568/b4167e77-3558-46a2-bdfc-db1de738f1ae)
 ![image](https://github.com/hksoriginal/Vastrify-Clothing-recommendation-system/assets/44989568/1dcd913e-76e1-4125-a1aa-6999abe015f3)
 ![image](https://github.com/hksoriginal/Vastrify-Clothing-recommendation-system/assets/44989568/5ab541ab-603e-4ef4-be25-74e8e5341840)
